@@ -6,6 +6,26 @@ It allows users to Create, Read, Update, Delete (CRUD) and Search tasks using a 
 
 ---
 
+## 2. Features  
+- User-friendly interface to manage tasks efficiently.  
+- Perform CRUD operations on tasks with real-time updates.  
+- Search tasks by title or status.  
+- Track task deadlines with due dates.  
+- Maintain audit trail with created and updated user details.  
+- Responsive design for desktop and mobile views.
+
+
+  
+## 3. Technologies Used  
+| Technology       | Purpose                  |
+|------------------|--------------------------|
+| ReactJS (v18+)   | Frontend SPA development |
+| .NET Core 6      | Backend API development  |
+| MySQL 8          | Database management      |
+| Entity Framework | ORM for DB interactions  |
+| Axios            | HTTP client for frontend |
+| Tailwind CSS     | Styling and layout       |
+| Visual Studio 2022 / VS Code | Development IDEs |
 ## Database Design
 
 ### ER Diagram
@@ -52,46 +72,44 @@ It allows users to Create, Read, Update, Delete (CRUD) and Search tasks using a 
 - **Reason:**  
   - MySQL database structure was defined first to clearly model real-world task properties.  
   - Backend code (Entity Models) was generated based on existing DB schema.
+  -The database schema was designed upfront in MySQL to model real-world task properties clearly. Backend entity models and context classes were then generated based on this schema, ensuring tight coupling between the database and codebase.
 
 ---
 
-## Application Structure
+## 5. Application Structure
 
-### Application Type
-- **Frontend:** ReactJS (Single Page Application - SPA)
-- **Backend:** .NET Core Web API
-- **Database:** MySQL
+### 5.1 Application Type  
+- Single Page Application (SPA) using ReactJS on the frontend.  
+- Backend implemented as a RESTful .NET Core Web API.  
+- Frontend communicates with backend APIs asynchronously for CRUD and search operations.
 
-### Frontend Structure
-- **Why ReactJS?**
-  - Fast SPA performance
-  - Easy state management
-  - Component-driven architecture for future scalability
+### 5.2 Frontend Structure  
+- ReactJS (version 18+) framework with component-driven architecture.  
+- Pages and components include:  
+  - Task List with search/filter functionality  
+  - Task Creation form  
+  - Task Update form  
+  - Task Detail view  
+  - Delete confirmation modal  
 
-- **Pages:**
-  - Task List Page (View all tasks + Search)
-  - Create New Task
-  - Update Task
-  - Task Details View
-  - Delete Task Button with Confirmation
+### 5.3 Backend Structure  
+- API Endpoints:  
+  - `POST /api/tasks` — Create task  
+  - `GET /api/tasks` — Get all tasks  
+  - `GET /api/tasks/{id}` — Get task by ID  
+  - `PUT /api/tasks/{id}` — Update task  
+  - `DELETE /api/tasks/{id}` — Delete task  
+  - `GET /api/tasks/search?query=xyz` — Search tasks by title/status  
 
-### Backend Structure
-- **API Endpoints:**
-  - `POST /api/tasks` → Create a task
-  - `GET /api/tasks` → Fetch all tasks
-  - `GET /api/tasks/{id}` → Fetch a task by ID
-  - `PUT /api/tasks/{id}` → Update a task
-  - `DELETE /api/tasks/{id}` → Delete a task
-  - `GET /api/tasks/search?query=xyz` → Search tasks by title/status
-
-- **Layers:**
-  - Controller
-  - Services
-  - Repository
-  - Entity/Model
-  - Database Context
+- Layers:  
+  - Controller — handles HTTP requests  
+  - Service — business logic layer  
+  - Repository — data access layer  
+  - Entity/Model — data models matching DB tables  
+  - Database Context — EF Core DB context  
 
 ---
+
 
 ## Build & Installation
 
