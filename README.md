@@ -29,7 +29,7 @@ It allows users to Create, Read, Update, Delete (CRUD) and Search tasks using a 
 ## Database Design
 
 ### ER Diagram
-![ER Diagram](taskmanager ER diagram.png)
+![ER Diagram](taskmangerER.png)
 
 - **Task Table**  
   - `id` (Primary Key)
