@@ -108,3 +108,53 @@ cd backend
 dotnet restore
 dotnet build
 dotnet run
+## Frontend Setup (ReactJS)
+
+### Prerequisites
+- Node.js (v18+)
+- npm (v9+)
+
+### Frontend end Setup (React js)
+
+### Steps to Run Frontend
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install all dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+### Database Setup (Mysql)
+
+-- Create the database
+CREATE DATABASE task_management;
+
+-- Use the database
+USE task_management;
+
+-- Create the tasks table
+CREATE TABLE tasks (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  due_date DATETIME,
+  status VARCHAR(50),
+  remarks TEXT,
+  created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  last_updated_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  created_by_user_id INT,
+  created_by_user_name VARCHAR(255),
+  last_updated_by_user_id INT,
+  last_updated_by_user_name VARCHAR(255)
+);
+
+### Database Confrigation
+
+
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost;Database=task_management;User Id=root;Password=yourpassword;"
+}
+
