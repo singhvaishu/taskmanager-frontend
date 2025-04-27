@@ -135,7 +135,7 @@ CREATE DATABASE task_management;
 
 -- Use the database
 USE task_management;
-
+```
 -- Create the tasks table
 CREATE TABLE tasks (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -151,12 +151,12 @@ CREATE TABLE tasks (
   last_updated_by_user_id INT,
   last_updated_by_user_name VARCHAR(255)
 );
-
+```
 
 ## Database Confrigation
 
-
+```
 "ConnectionStrings": {
   "DefaultConnection": "Server=localhost;Database=task_management;User Id=root;Password=yourpassword;"
 }
-
+```
