@@ -114,7 +114,7 @@ dotnet run
 - Node.js (v18+)
 - npm (v9+)
 
-### Frontend end Setup (React js)
+## Frontend end Setup (React js)
 
 ### Steps to Run Frontend
 ```bash
@@ -127,7 +127,7 @@ npm install
 # Start the development server
 npm run dev
 
-### Database Setup (Mysql)
+## Database Setup (Mysql)
 
 -- Create the database
 CREATE DATABASE task_management;
@@ -151,7 +151,7 @@ CREATE TABLE tasks (
   last_updated_by_user_name VARCHAR(255)
 );
 
-### Database Confrigation
+## Database Confrigation
 
 
 "ConnectionStrings": {
