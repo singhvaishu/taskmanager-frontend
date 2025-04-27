@@ -1,12 +1,110 @@
-# React + Vite
+# Task Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is a Task Management application built for the Oritso Private Limited screening assignment.  
+It allows users to Create, Read, Update, Delete (CRUD) and Search tasks using a ReactJS frontend, .NET backend, and MySQL database.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Database Design
 
-## Expanding the ESLint configuration
+### ER Diagram
+(Attach your ER diagram image here, or describe simply.)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Task Table**  
+  - `id` (Primary Key)
+  - `title` (VARCHAR)
+  - `description` (TEXT)
+  - `due_date` (DATETIME)
+  - `status` (ENUM or VARCHAR)
+  - `remarks` (TEXT)
+  - `created_on` (TIMESTAMP)
+  - `last_updated_on` (TIMESTAMP)
+  - `created_by_user_id` (INT)
+  - `created_by_user_name` (VARCHAR)
+  - `last_updated_by_user_id` (INT)
+  - `last_updated_by_user_name` (VARCHAR)
+
+### Data Dictionary
+
+| Field Name | Data Type | Description |
+|:-----------|:----------|:------------|
+| id | INT (Primary Key) | Unique identifier for each task |
+| title | VARCHAR(255) | Title of the task |
+| description | TEXT | Description of the task |
+| due_date | DATETIME | Deadline for the task |
+| status | VARCHAR(50) | Status (Pending, Completed, In Progress) |
+| remarks | TEXT | Additional remarks |
+| created_on | TIMESTAMP | Record creation time |
+| last_updated_on | TIMESTAMP | Record last update time |
+| created_by_user_id | INT | ID of the creator |
+| created_by_user_name | VARCHAR(255) | Name of the creator |
+| last_updated_by_user_id | INT | ID of the person who updated |
+| last_updated_by_user_name | VARCHAR(255) | Name of the person who updated |
+
+### Indexes Used
+- Primary Key Index on `id`
+- Index on `due_date`
+- Index on `status`
+
+### Code First or DB First?
+- **Approach Used:** DB First  
+- **Reason:**  
+  - MySQL database structure was defined first to clearly model real-world task properties.  
+  - Backend code (Entity Models) was generated based on existing DB schema.
+
+---
+
+## Application Structure
+
+### Application Type
+- **Frontend:** ReactJS (Single Page Application - SPA)
+- **Backend:** .NET Core Web API
+- **Database:** MySQL
+
+### Frontend Structure
+- **Why ReactJS?**
+  - Fast SPA performance
+  - Easy state management
+  - Component-driven architecture for future scalability
+
+- **Pages:**
+  - Task List Page (View all tasks + Search)
+  - Create New Task
+  - Update Task
+  - Task Details View
+  - Delete Task Button with Confirmation
+
+### Backend Structure
+- **API Endpoints:**
+  - `POST /api/tasks` → Create a task
+  - `GET /api/tasks` → Fetch all tasks
+  - `GET /api/tasks/{id}` → Fetch a task by ID
+  - `PUT /api/tasks/{id}` → Update a task
+  - `DELETE /api/tasks/{id}` → Delete a task
+  - `GET /api/tasks/search?query=xyz` → Search tasks by title/status
+
+- **Layers:**
+  - Controller
+  - Services
+  - Repository
+  - Entity/Model
+  - Database Context
+
+---
+
+## Build & Installation
+
+### Environment Details
+- .NET 6
+- Node.js 18+
+- React 18+
+- MySQL 8+
+- Visual Studio 2022 / VS Code
+
+### Backend Setup (DotNet)
+```bash
+cd backend
+dotnet restore
+dotnet build
+dotnet run
